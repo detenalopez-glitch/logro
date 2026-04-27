@@ -1,5 +1,5 @@
 import React from 'react';
-import { GameProgress } from '../../types';
+import type { GameProgress } from '../../types';
 import { ProgressBar } from './ProgressBar';
 
 interface GameCardProps {

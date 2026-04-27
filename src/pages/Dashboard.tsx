@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { GameCard } from '../components/ui/GameCard';
 import { Button } from '../components/ui/Button';
 import { Modal } from '../components/ui/Modal';
-import { GameProgress } from '../types';
+import type { GameProgress } from '../types';
 
 // Mock de datos para poder visualizar el Dashboard sin Backend/Context aún
 const MOCK_GAMES: GameProgress[] = [
