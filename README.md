@@ -3,7 +3,7 @@
 Una plataforma para registrar, visualizar y celebrar tus éxitos personales y profesionales.
 
 ## Tablero de Proyecto
-- [Tablero de Trello (Pendiente - ¡Crea tu tablero y pon el enlace aquí!)](#)
+- [Tablero de Trello (https://trello.com/b/bjuixrwD/logro)](#)
 
 ## Documentación
 - [Idea del Proyecto](docs/idea.md)

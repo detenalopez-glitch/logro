@@ -1,14 +1,14 @@
-# Idea del Proyecto: Logro
+# Idea del Proyecto: Logro (Gaming Tracker)
 
 ## Problema
-A menudo, las personas alcanzan metas o completan proyectos importantes pero no llevan un registro visual o estructurado de sus éxitos. Esto hace que sea difícil ver el progreso a largo plazo, perdiendo motivación al olvidar todo lo que ya se ha conseguido.
+Los jugadores suelen tener sus juegos y logros repartidos en múltiples plataformas (Steam, PlayStation, Xbox, Nintendo). Falta un lugar unificado, visual y personalizable donde un jugador ("completionist" o cazador de trofeos) pueda registrar qué juegos está jugando y qué porcentaje de logros ha completado, para tener un dashboard centralizado de su progreso.
 
 ## Usuario Objetivo
-Profesionales, estudiantes, emprendedores y entusiastas del desarrollo personal que desean un lugar donde registrar, visualizar y celebrar sus logros diarios, semanales o anuales de forma rápida.
+Gamers, "Trophy Hunters" (cazadores de trofeos) y completistas que disfrutan de sacar el 100% de sus videojuegos y quieren llevar un registro detallado y unificado de su avance.
 
 ## Funcionalidades Principales
-1. **Registro Rápido de Logros:** Añadir un logro con título, descripción breve, categoría y fecha.
-2. **Dashboard Visual:** Ver un resumen de los logros por semana/mes, utilizando gráficos simples o una línea de tiempo (timeline).
-3. **Categorización y Etiquetas:** Clasificar logros (Ej. Trabajo, Estudio, Personal, Salud).
-4. **Sistema de Celebración (Gamificación):** Animaciones visuales o mensajes de refuerzo positivo al registrar un logro.
-5. **Autenticación (Futuro):** Permitir a los usuarios tener cuentas privadas y acceder desde cualquier dispositivo para guardar su progreso en la nube.
+1. **Catálogo de Juegos:** Añadir videojuegos al perfil indicando título, plataforma (opcional) y total de logros.
+2. **Seguimiento de Progreso:** Registrar la cantidad de logros obtenidos versus el total, calculando automáticamente el porcentaje de completado.
+3. **Dashboard Visual:** Ver estadísticas globales (juegos "platinados" o al 100%, progreso promedio, juegos actualmente en curso).
+4. **Estados y Categorías:** Clasificar los juegos (Ej. Backlog, Jugando, Terminada la historia, 100% Completado).
+5. **Autenticación (Futuro):** Permitir guardar la colección en la nube para acceder desde cualquier navegador o dispositivo.
