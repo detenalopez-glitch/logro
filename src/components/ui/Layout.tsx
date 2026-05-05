@@ -22,7 +22,9 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
               <Link to="/" className="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium">
                 Dashboard
               </Link>
-              {/* En el futuro acá irá "Añadir Juego" y "Mi Colección" */}
+              <Link to="/collection" className="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium">
+                Mi Colección
+              </Link>
             </div>
           </div>
         </div>
