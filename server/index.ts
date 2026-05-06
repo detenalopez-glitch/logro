@@ -21,6 +21,12 @@ app.use('/api/v1/games', gameRoutes);
 // Manejo de errores centralizado
 app.use(errorHandler);
 
-app.listen(config.port, () => {
-  console.log(`🚀 Servidor corriendo en http://localhost:${config.port}`);
-});
+// Para desarrollo local
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(config.port, () => {
+    console.log(`🚀 Servidor corriendo en http://localhost:${config.port}`);
+  });
+}
+
+// Para Vercel (Serverless Functions)
+export default app;
