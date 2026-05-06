@@ -1,8 +1,8 @@
 import express from 'express';
 import cors from 'cors';
-import { config } from './config/env';
-import gameRoutes from './routes/game.routes';
-import { errorHandler } from './middleware/error.middleware';
+import { config } from '../config/env';
+import gameRoutes from '../routes/game.routes';
+import { errorHandler } from '../middleware/error.middleware';
 
 const app = express();
 
