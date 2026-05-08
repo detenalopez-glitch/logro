@@ -1,11 +1,13 @@
 export class ApiError extends Error {
-  constructor(public status: number, message: string) {
+  status: number;
+  constructor(status: number, message: string) {
     super(message);
+    this.status = status;
     this.name = 'ApiError';
   }
 }
 
-const BASE_URL = 'http://localhost:3001/api/v1';
+const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001/api/v1';
 
 interface FetchOptions extends RequestInit {
   headers?: Record<string, string>;
@@ -40,6 +42,8 @@ export async function fetchClient<T>(endpoint: string, options: FetchOptions = {
     if (error instanceof ApiError) {
       throw error;
     }
-    throw new Error(error instanceof Error ? error.message : 'Error desconocido de red');
+    const newError = new Error(error instanceof Error ? error.message : 'Error desconocido de red');
+    newError.cause = error;
+    throw newError;
   }
 }

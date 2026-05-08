@@ -10,6 +10,7 @@ interface AddGameFormProps {
 }
 
 interface FormValues {
+  [key: string]: string | number | GameStatus;
   title: string;
   platform: string;
   totalAchievements: number;
@@ -29,9 +30,9 @@ export default function AddGameForm({ onSuccess, onCancel }: AddGameFormProps) {
       status: 'playing',
     },
     {
-      title: (val) => (!val.trim() ? 'El título es requerido' : null),
-      totalAchievements: (val) => (val < 0 ? 'Debe ser 0 o mayor' : null),
-      earnedAchievements: (val) => (val < 0 ? 'Debe ser 0 o mayor' : null),
+      title: (val: unknown) => (!String(val).trim() ? 'El título es requerido' : null),
+      totalAchievements: (val: unknown) => (Number(val) < 0 ? 'Debe ser 0 o mayor' : null),
+      earnedAchievements: (val: unknown) => (Number(val) < 0 ? 'Debe ser 0 o mayor' : null),
     }
   );
 

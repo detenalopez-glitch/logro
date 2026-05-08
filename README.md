@@ -1,21 +1,54 @@
-# Logro
+# Logro - Gaming Tracker 🏆
 
-Una plataforma para registrar, visualizar y celebrar tus éxitos personales y profesionales.
+Logro es una aplicación diseñada para gamers, *Trophy Hunters* y "completionists" que desean llevar un control unificado y centralizado de sus videojuegos y el porcentaje de logros alcanzados en distintas plataformas (Steam, PlayStation, Xbox, etc.).
 
-## Tablero de Proyecto
-- [Tablero de Trello (https://trello.com/b/bjuixrwD/logro)](#)
+## 🚀 URLs de Producción (Vercel)
+- **Frontend:** *Pendiente de despliegue manual en Vercel*
+- **Backend API:** *Pendiente de despliegue manual en Vercel*
 
-## Documentación
-- [Idea del Proyecto](docs/idea.md)
-- [Gestión del Proyecto](docs/project-management.md)
-- [Metodologías Ágiles](docs/agile.md)
+## 🛠️ Stack Tecnológico
 
-## Stack Tecnológico
-- Vite + React + TypeScript
-- Tailwind CSS
-- React Router
+**Frontend:**
+- React 18
+- Vite
+- TypeScript Estricto
+- Tailwind CSS v4
+- React Router DOM v7
+- Arquitectura basada en Hooks (`useGames`, `useForm`) y Context API nativa.
 
-## Scripts
-- `npm install` - Instalar dependencias
-- `npm run dev` - Levantar servidor de desarrollo
-- `npm run build` - Compilar para producción
+**Backend (API REST):**
+- Node.js
+- Express
+- TypeScript
+- UUID (Gestión de IDs)
+
+## 📋 Gestión del Proyecto
+El flujo de desarrollo fue trackeado utilizando metodología Kanban.
+- **Trello Tablero:** [Enlace a tu tablero Trello] *(Reemplazar con enlace real)*
+
+## 📂 Documentación
+Toda la arquitectura y toma de decisiones se encuentra documentada en la carpeta `/docs`:
+- `/docs/idea.md` - Concepto inicial
+- `/docs/design.md` y `/docs/components.md` - UI/UX y Sistema de Componentes
+- `/docs/hooks.md` y `/docs/context.md` - State management
+- `/docs/api.md` - Contratos de API
+- `/docs/deployment.md` - Guías de despliegue
+- `/docs/retrospective.md` - Reflexiones de cierre
+
+## ⚙️ Desarrollo Local
+
+### 1. Inicializar el Backend
+```bash
+cd server
+npm install
+npm run dev
+```
+La API levantará en `http://localhost:3001`
+
+### 2. Inicializar el Frontend
+Abre otra terminal en la raíz del proyecto:
+```bash
+npm install
+npm run dev
+```
+La aplicación web estará disponible en `http://localhost:5173`
