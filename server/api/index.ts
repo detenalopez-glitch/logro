@@ -29,4 +29,4 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 // Para Vercel (Serverless Functions)
-export default app;
+module.exports = app;
