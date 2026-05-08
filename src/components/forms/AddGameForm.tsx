@@ -9,7 +9,8 @@ interface AddGameFormProps {
   onCancel?: () => void;
 }
 
-interface FormValues extends Record<string, unknown> {
+interface FormValues {
+  [key: string]: string | number | GameStatus;
   title: string;
   platform: string;
   totalAchievements: number;
