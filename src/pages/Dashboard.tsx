@@ -5,19 +5,30 @@ import { Button } from '../components/ui/Button';
 import { Modal } from '../components/ui/Modal';
 import AddGameForm from '../components/forms/AddGameForm';
 import { Layout } from '../components/ui/Layout';
+import type { GameProgress } from '../types';
 
 export default function Dashboard() {
   const { games, loading, error, stats, deleteGame } = useGames();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [editingGame, setEditingGame] = useState<GameProgress | null>(null);
 
   const handleEdit = (id: string) => {
-    alert(`En el futuro esto abrirá el formulario para editar el juego ${id}`);
+    const game = games.find((g) => g.id === id);
+    if (game) {
+      setEditingGame(game);
+      setIsModalOpen(true);
+    }
   };
 
   const handleDelete = (id: string) => {
     if (window.confirm('¿Seguro que deseas eliminar este juego de tu colección?')) {
       deleteGame(id);
     }
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setEditingGame(null);
   };
 
   // We want to show maybe just the top recent ones on Dashboard, 
@@ -36,7 +47,7 @@ export default function Dashboard() {
             </p>
           </div>
           <div className="flex gap-3">
-            <Button variant="primary" onClick={() => setIsModalOpen(true)}>
+            <Button variant="primary" onClick={() => { setEditingGame(null); setIsModalOpen(true); }}>
               + Añadir Juego
             </Button>
           </div>
@@ -105,8 +116,16 @@ export default function Dashboard() {
         </div>
 
         {/* Modal de añadir juegos */}
-        <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} title="Añadir Nuevo Juego">
-          <AddGameForm onSuccess={() => setIsModalOpen(false)} onCancel={() => setIsModalOpen(false)} />
+        <Modal 
+          isOpen={isModalOpen} 
+          onClose={handleCloseModal} 
+          title={editingGame ? "Editar Juego" : "Añadir Nuevo Juego"}
+        >
+          <AddGameForm 
+            initialData={editingGame} 
+            onSuccess={handleCloseModal} 
+            onCancel={handleCloseModal} 
+          />
         </Modal>
       </div>
     </Layout>
