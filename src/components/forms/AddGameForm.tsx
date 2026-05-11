@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useForm } from '../../hooks/useForm';
 import { useGames } from '../../hooks/useGames';
 import { Button } from '../ui/Button';
-import type { GameStatus } from '../../types';
+import type { GameStatus, GameProgress } from '../../types';
 
 interface AddGameFormProps {
+  initialData?: GameProgress | null;
   onSuccess?: () => void;
   onCancel?: () => void;
 }
@@ -18,16 +19,16 @@ interface FormValues {
   status: GameStatus;
 }
 
-export default function AddGameForm({ onSuccess, onCancel }: AddGameFormProps) {
-  const { addGame } = useGames();
+export default function AddGameForm({ initialData, onSuccess, onCancel }: AddGameFormProps) {
+  const { addGame, updateGame } = useGames();
 
   const { values, errors, isSubmitting, setIsSubmitting, handleChange, validate, resetForm } = useForm<FormValues>(
     {
-      title: '',
-      platform: '',
-      totalAchievements: 0,
-      earnedAchievements: 0,
-      status: 'playing',
+      title: initialData?.title || '',
+      platform: initialData?.platform || '',
+      totalAchievements: initialData?.totalAchievements || 0,
+      earnedAchievements: initialData?.earnedAchievements || 0,
+      status: initialData?.status || 'playing',
     },
     {
       title: (val: unknown) => (!String(val).trim() ? 'El título es requerido' : null),
@@ -35,6 +36,17 @@ export default function AddGameForm({ onSuccess, onCancel }: AddGameFormProps) {
       earnedAchievements: (val: unknown) => (Number(val) < 0 ? 'Debe ser 0 o mayor' : null),
     }
   );
+
+  useEffect(() => {
+    if (initialData) {
+      handleChange('title', initialData.title);
+      handleChange('platform', initialData.platform || '');
+      handleChange('totalAchievements', initialData.totalAchievements);
+      handleChange('earnedAchievements', initialData.earnedAchievements);
+      handleChange('status', initialData.status);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [initialData]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -46,7 +58,11 @@ export default function AddGameForm({ onSuccess, onCancel }: AddGameFormProps) {
 
       setIsSubmitting(true);
       try {
-        await addGame(values);
+        if (initialData) {
+          await updateGame(initialData.id, values);
+        } else {
+          await addGame(values);
+        }
         resetForm();
         if (onSuccess) onSuccess();
       } catch (err) {
